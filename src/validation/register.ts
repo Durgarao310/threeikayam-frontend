@@ -16,4 +16,26 @@ const registerSchema = z.object({
       "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character"
     ),
 });
-export default registerSchema;
+
+const loginSchema = z.object({
+  email: z.string().email({
+    message: "Invalid email.",
+  }),
+  password: z
+    .string()
+    .min(8, { message: "Invalid password" })
+    .max(32, "Invalid password")
+    .regex(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/,
+      "Invalid password"
+    ),
+});
+
+const forgotPasswordSchema = z.object({
+  email: z.string().email({
+    message: "Invalid email.",
+  }),
+  password: z.string(),
+});
+
+export { registerSchema, loginSchema, forgotPasswordSchema };

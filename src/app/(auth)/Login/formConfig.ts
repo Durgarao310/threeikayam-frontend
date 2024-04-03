@@ -1,15 +1,6 @@
 import { Control } from "react-hook-form";
 
-export const RegisterConfig = (control: Control<any, any>) => [
-  {
-    control: control,
-    id: "fullName",
-    name: "fullName",
-    label: "Full Name",
-    type: "text",
-    placeholder: "Enter your full name",
-    required: true,
-  },
+export const LoginConfig = (control: Control<any, any>) => [
   {
     control: control,
     id: "email",
